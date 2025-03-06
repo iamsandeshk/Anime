@@ -72,9 +72,9 @@ const CountdownTimer = ({
       
       // Create animation flip effect when digits change
       setFlipStates(prevState => ({
-        days: prevState.days !== newTimeLeft.days,
-        hours: prevState.hours !== newTimeLeft.hours,
-        minutes: prevState.minutes !== newTimeLeft.minutes,
+        days: timeLeft.days !== newTimeLeft.days,
+        hours: timeLeft.hours !== newTimeLeft.hours,
+        minutes: timeLeft.minutes !== newTimeLeft.minutes,
         seconds: true // Always flip seconds
       }));
       
@@ -82,7 +82,7 @@ const CountdownTimer = ({
     }, 1000);
     
     return () => clearInterval(timer);
-  }, [calculateTimeLeft]);
+  }, [calculateTimeLeft, timeLeft]);
 
   // Format numbers to always have two digits
   const formatNumber = (num: number) => {
