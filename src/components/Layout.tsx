@@ -13,7 +13,7 @@ const Layout = ({ children, className, useSmoothScroll = true }: LayoutProps) =>
   return (
     <div 
       className={cn(
-        "min-h-screen w-full bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden",
+        "min-h-screen w-full bg-black text-white overflow-hidden",
         className
       )}
     >

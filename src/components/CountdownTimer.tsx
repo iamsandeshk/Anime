@@ -90,46 +90,46 @@ const CountdownTimer = ({
   };
 
   return (
-    <div className={cn("section py-24", className)}>
-      <div className="w-full max-w-4xl mx-auto text-center fade-in-view">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-12 text-white">
+    <div className={cn("section py-16 sm:py-24", className)}>
+      <div className="w-full max-w-4xl mx-auto text-center fade-in-view px-4">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-8 sm:mb-12 text-white">
           {title}
         </h2>
         
-        <div className="glass rounded-xl p-8 sm:p-10 md:p-12">
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
+        <div className="glass rounded-xl p-6 sm:p-8 md:p-10 lg:p-12">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             <div className="flex flex-col items-center">
-              <div className={cn("timer-digit text-4xl sm:text-5xl md:text-6xl font-bold text-white", 
+              <div className={cn("timer-digit text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white", 
                 flipStates.days ? "flip" : "")}>
                 <span>{formatNumber(timeLeft.days)}</span>
               </div>
               <span className="text-xs sm:text-sm text-gray-300 mt-2">DAYS</span>
             </div>
             
-            <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white/50 self-start mt-2">:</div>
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-white/50 self-start mt-2">:</div>
             
             <div className="flex flex-col items-center">
-              <div className={cn("timer-digit text-4xl sm:text-5xl md:text-6xl font-bold text-white", 
+              <div className={cn("timer-digit text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white", 
                 flipStates.hours ? "flip" : "")}>
                 <span>{formatNumber(timeLeft.hours)}</span>
               </div>
               <span className="text-xs sm:text-sm text-gray-300 mt-2">HOURS</span>
             </div>
             
-            <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white/50 self-start mt-2">:</div>
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-white/50 self-start mt-2">:</div>
             
             <div className="flex flex-col items-center">
-              <div className={cn("timer-digit text-4xl sm:text-5xl md:text-6xl font-bold text-white", 
+              <div className={cn("timer-digit text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white", 
                 flipStates.minutes ? "flip" : "")}>
                 <span>{formatNumber(timeLeft.minutes)}</span>
               </div>
               <span className="text-xs sm:text-sm text-gray-300 mt-2">MINUTES</span>
             </div>
             
-            <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white/50 self-start mt-2">:</div>
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-white/50 self-start mt-2">:</div>
             
             <div className="flex flex-col items-center">
-              <div className={cn("timer-digit text-4xl sm:text-5xl md:text-6xl font-bold text-white", 
+              <div className={cn("timer-digit text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white", 
                 flipStates.seconds ? "flip" : "")}>
                 <span>{formatNumber(timeLeft.seconds)}</span>
               </div>
@@ -137,7 +137,7 @@ const CountdownTimer = ({
             </div>
           </div>
           
-          <p className="text-gray-400 mt-10 max-w-2xl mx-auto">
+          <p className="text-gray-300 mt-8 sm:mt-10 max-w-2xl mx-auto text-sm sm:text-base">
             The next episode will be released this Saturday at 10:00 PM. 
             Don't miss it!
           </p>

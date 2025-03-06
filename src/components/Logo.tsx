@@ -29,12 +29,12 @@ const Logo = ({ className }: LogoProps) => {
     <div 
       ref={logoRef}
       className={cn(
-        "fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-300 ease-out",
+        "fixed top-4 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-300 ease-out w-full max-w-[280px] sm:max-w-xs",
         className
       )}
     >
-      <div className="bg-black/10 backdrop-blur-md px-5 py-3 rounded-full shadow-lg border border-white/10">
-        <h1 className="text-2xl font-bold text-white tracking-tight">
+      <div className="bg-black/70 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-xl border border-white/20">
+        <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
           <span className="font-light">Solo</span>Leveling
         </h1>
       </div>
