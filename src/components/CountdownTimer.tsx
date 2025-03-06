@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
 
@@ -24,18 +23,13 @@ const CountdownTimer = ({
     seconds: false
   });
 
-  // Calculate time until next Saturday at 10 PM
   const getTimeUntilNextSaturday = useCallback(() => {
     const now = new Date();
     let nextSaturday = new Date(now);
     
-    // Find next Saturday (day 6)
     nextSaturday.setDate(now.getDate() + (6 - now.getDay() + 7) % 7);
-    
-    // Set time to 10 PM
     nextSaturday.setHours(22, 0, 0, 0);
     
-    // If today is Saturday and it's past 10 PM, get next Saturday
     if (now.getDay() === 6 && now.getHours() >= 22) {
       nextSaturday.setDate(nextSaturday.getDate() + 7);
     }
@@ -43,12 +37,10 @@ const CountdownTimer = ({
     return nextSaturday.getTime() - now.getTime();
   }, []);
 
-  // Calculate and format time remaining
   const calculateTimeLeft = useCallback(() => {
     const timeRemaining = getTimeUntilNextSaturday();
     
     if (timeRemaining <= 0) {
-      // Reset for next week when countdown ends
       return {
         days: 0,
         hours: 0,
@@ -57,7 +49,6 @@ const CountdownTimer = ({
       };
     }
     
-    // Calculate time units
     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
@@ -70,12 +61,11 @@ const CountdownTimer = ({
     const timer = setInterval(() => {
       const newTimeLeft = calculateTimeLeft();
       
-      // Create animation flip effect when digits change
       setFlipStates(prevState => ({
         days: timeLeft.days !== newTimeLeft.days,
         hours: timeLeft.hours !== newTimeLeft.hours,
         minutes: timeLeft.minutes !== newTimeLeft.minutes,
-        seconds: true // Always flip seconds
+        seconds: true
       }));
       
       setTimeLeft(newTimeLeft);
@@ -84,14 +74,13 @@ const CountdownTimer = ({
     return () => clearInterval(timer);
   }, [calculateTimeLeft, timeLeft]);
 
-  // Format numbers to always have two digits
   const formatNumber = (num: number) => {
     return num < 10 ? `0${num}` : num.toString();
   };
 
   return (
     <div className={cn("section py-16 sm:py-24", className)}>
-      <div className="w-full max-w-4xl mx-auto text-center fade-in-view px-4">
+      <div className="section-content w-full max-w-4xl mx-auto text-center px-4">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-8 sm:mb-12 text-white">
           {title}
         </h2>

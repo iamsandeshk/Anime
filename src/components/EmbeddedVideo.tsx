@@ -26,7 +26,7 @@ const EmbeddedVideo = ({
 
   return (
     <div className={cn("section px-4 py-24", className)} ref={containerRef}>
-      <div className="w-full max-w-5xl mx-auto fade-in-view">
+      <div className="section-content w-full max-w-5xl mx-auto">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center mb-8 text-white">
           {title}
         </h2>

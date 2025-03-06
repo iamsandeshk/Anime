@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -48,7 +47,7 @@ const Poll = ({
 
   return (
     <div className={cn("section py-16 sm:py-24", className)}>
-      <div className="w-full max-w-2xl mx-auto fade-in-view px-4">
+      <div className="section-content w-full max-w-2xl mx-auto px-4">
         <div className="glass rounded-xl p-6 sm:p-8">
           <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-6 sm:mb-8 text-center text-white">
             {question}

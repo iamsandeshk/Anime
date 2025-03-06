@@ -79,7 +79,7 @@ const VideoFeature = ({ className, title = "Solo Leveling", subtitle = "Arise fr
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-10"></div>
       
       {/* Content */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
+      <div className="hero-content relative z-20 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
         <h2 className="text-white text-lg sm:text-xl md:text-2xl font-light tracking-wider uppercase">
           {title}
         </h2>
