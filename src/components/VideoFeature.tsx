@@ -10,7 +10,6 @@ interface VideoFeatureProps {
 
 const VideoFeature = ({ className, title = "Solo Leveling", subtitle = "Arise from the Shadow" }: VideoFeatureProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
@@ -27,13 +26,13 @@ const VideoFeature = ({ className, title = "Solo Leveling", subtitle = "Arise fr
       { threshold: 0.3 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
       }
     };
   }, []);
@@ -44,9 +43,8 @@ const VideoFeature = ({ className, title = "Solo Leveling", subtitle = "Arise fr
 
   return (
     <div 
-      ref={containerRef}
       className={cn(
-        "relative h-screen w-full overflow-hidden fade-in-view",
+        "relative min-h-[60vh] sm:min-h-[80vh] w-full overflow-hidden",
         className
       )}
     >
@@ -82,10 +80,10 @@ const VideoFeature = ({ className, title = "Solo Leveling", subtitle = "Arise fr
       
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
-        <h2 className="text-white text-lg sm:text-xl md:text-2xl font-light tracking-wider uppercase animate-slide-down">
+        <h2 className="text-white text-lg sm:text-xl md:text-2xl font-light tracking-wider uppercase">
           {title}
         </h2>
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 text-white tracking-tight text-shadow-lg animate-slide-up">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 text-white tracking-tight text-shadow-lg">
           {subtitle}
         </h1>
       </div>

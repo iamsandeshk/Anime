@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -7,27 +7,8 @@ interface LogoProps {
 }
 
 const Logo = ({ className }: LogoProps) => {
-  const logoRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!logoRef.current) return;
-      
-      const scrollY = window.scrollY;
-      const scale = Math.max(0.8, 1 - scrollY / 800);
-      const opacity = Math.max(0.5, 1 - scrollY / 1000);
-      
-      logoRef.current.style.transform = `scale(${scale})`;
-      logoRef.current.style.opacity = `${opacity}`;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div 
-      ref={logoRef}
       className={cn(
         "fixed top-4 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-300 ease-out w-full max-w-[280px] sm:max-w-xs",
         className
