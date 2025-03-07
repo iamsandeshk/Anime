@@ -1,7 +1,6 @@
 
 import React from "react";
 import Layout from "@/components/Layout";
-import Logo from "@/components/Logo";
 import VideoFeature from "@/components/VideoFeature";
 import EmbeddedVideo from "@/components/EmbeddedVideo";
 import CountdownTimer from "@/components/CountdownTimer";
@@ -13,8 +12,6 @@ const Index = () => {
 
   return (
     <Layout>
-      <Logo />
-      
       <section id="hero" className="min-h-screen">
         <VideoFeature 
           title="Solo Leveling" 
@@ -22,20 +19,20 @@ const Index = () => {
         />
       </section>
       
-      <section id="embedded-video" className="min-h-screen py-12 sm:py-16">
+      <section id="embedded-video" className="min-h-screen">
         <EmbeddedVideo 
           title="Latest Episode Preview" 
           videoId="d9MyW72ELq0"
         />
       </section>
       
-      <section id="countdown" className="min-h-screen py-12 sm:py-16">
+      <section id="countdown" className="min-h-screen">
         <CountdownTimer 
           title="Next Episode Premieres In" 
         />
       </section>
       
-      <section id="poll" className="min-h-screen py-12 sm:py-16 mb-16">
+      <section id="poll" className="min-h-screen mb-16">
         <Poll 
           question="Will this episode break the internet again?" 
           options={[

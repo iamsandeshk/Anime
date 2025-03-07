@@ -7,63 +7,78 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const useScrollAnimations = () => {
   useEffect(() => {
-    // Pin the hero section while scrolling
-    ScrollTrigger.create({
-      trigger: '#hero',
-      start: 'top top',
-      end: '+=100%',
-      pin: true,
-      pinSpacing: true
-    });
-
-    // Animate hero content with a subtle fade in
-    gsap.from('#hero .hero-content', {
+    // Video section animations
+    const videoTl = gsap.timeline({
       scrollTrigger: {
         trigger: '#hero',
-        start: 'top center',
-        end: 'center center',
+        start: 'top top',
+        end: '+=150%',
+        pin: true,
         scrub: 1
-      },
-      y: 30,
-      opacity: 0,
-      duration: 1
+      }
     });
 
+    // Ensure video plays automatically
+    const videoElement = document.querySelector('#hero video');
+    if (videoElement instanceof HTMLVideoElement) {
+      videoElement.play().catch(err => console.error("Video play error:", err));
+    }
+
+    // Title animation - starts hidden, fades in while scrolling
+    videoTl.fromTo('#hero .hero-title', 
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5 }
+    );
+    
+    videoTl.fromTo('#hero .hero-subtitle', 
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5 }
+    );
+
     // Embedded video section slow scroll and fade in
-    gsap.from('#embedded-video .section-content', {
+    gsap.timeline({
       scrollTrigger: {
         trigger: '#embedded-video',
         start: 'top bottom',
-        end: 'center center',
-        scrub: 1.5
-      },
-      y: 100,
-      opacity: 0
-    });
+        end: 'top center',
+        scrub: 1.5,
+        pin: true,
+        pinSpacing: true
+      }
+    }).fromTo('#embedded-video .section-content', 
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 }
+    );
 
-    // Countdown section animation with a slow reveal
-    gsap.from('#countdown .section-content', {
+    // Countdown section animation with a slow reveal and pin
+    gsap.timeline({
       scrollTrigger: {
         trigger: '#countdown',
         start: 'top bottom',
-        end: 'center center',
-        scrub: 1.5
-      },
-      y: 70,
-      opacity: 0
-    });
+        end: 'top center',
+        scrub: 1.5,
+        pin: true,
+        pinSpacing: true
+      }
+    }).fromTo('#countdown .section-content', 
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 }
+    );
 
-    // Poll section animation with staggered entrance
-    gsap.from('#poll .section-content', {
+    // Poll section animation with staggered entrance and pin
+    gsap.timeline({
       scrollTrigger: {
         trigger: '#poll',
         start: 'top bottom',
-        end: 'center center',
-        scrub: 1.5
-      },
-      y: 70,
-      opacity: 0
-    });
+        end: 'top center',
+        scrub: 1.5,
+        pin: true,
+        pinSpacing: true
+      }
+    }).fromTo('#poll .section-content', 
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 }
+    );
 
     return () => {
       // Clean up all ScrollTrigger instances when component unmounts

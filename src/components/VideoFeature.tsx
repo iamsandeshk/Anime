@@ -13,28 +13,9 @@ const VideoFeature = ({ className, title = "Solo Leveling", subtitle = "Arise fr
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && videoRef.current) {
-            videoRef.current.play().catch(err => console.error("Video play error:", err));
-          } else if (videoRef.current) {
-            videoRef.current.pause();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
     if (videoRef.current) {
-      observer.observe(videoRef.current);
+      videoRef.current.play().catch(err => console.error("Video play error:", err));
     }
-
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
-    };
   }, []);
 
   const handleVideoLoaded = () => {
@@ -44,7 +25,7 @@ const VideoFeature = ({ className, title = "Solo Leveling", subtitle = "Arise fr
   return (
     <div 
       className={cn(
-        "relative min-h-[60vh] sm:min-h-[80vh] w-full overflow-hidden",
+        "relative min-h-[100vh] w-full overflow-hidden",
         className
       )}
     >
@@ -80,10 +61,10 @@ const VideoFeature = ({ className, title = "Solo Leveling", subtitle = "Arise fr
       
       {/* Content */}
       <div className="hero-content relative z-20 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
-        <h2 className="text-white text-lg sm:text-xl md:text-2xl font-light tracking-wider uppercase">
+        <h2 className="hero-title text-white text-lg sm:text-xl md:text-2xl font-light tracking-wider uppercase opacity-0">
           {title}
         </h2>
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 text-white tracking-tight text-shadow-lg">
+        <h1 className="hero-subtitle text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 text-white tracking-tight text-shadow-lg opacity-0">
           {subtitle}
         </h1>
       </div>
