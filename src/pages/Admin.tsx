@@ -5,6 +5,8 @@ import { useToast } from "@/hooks/use-toast";
 
 const Admin = () => {
   const [videoUrl, setVideoUrl] = useState("");
+  const [heroTitle, setHeroTitle] = useState("Solo Leveling");
+  const [heroSubtitle, setHeroSubtitle] = useState("Arise from the Shadow");
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -45,6 +47,20 @@ const Admin = () => {
       toast({
         title: "Video updated",
         description: "The video has been updated successfully",
+      });
+      setIsLoading(false);
+    }, 1000);
+  };
+
+  const handleUpdateHero = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    // Simulate API call to update hero content
+    setTimeout(() => {
+      toast({
+        title: "Hero content updated",
+        description: "The title and subtitle have been updated successfully",
       });
       setIsLoading(false);
     }, 1000);
@@ -114,6 +130,52 @@ const Admin = () => {
           </button>
         </div>
         
+        {/* Hero Content Section */}
+        <div className="bg-gray-800 rounded-xl p-6 shadow-xl mb-6">
+          <h2 className="text-xl font-semibold text-white mb-4">Update Hero Content</h2>
+          
+          <form onSubmit={handleUpdateHero} className="space-y-4">
+            <div>
+              <label htmlFor="hero-title" className="block text-sm font-medium text-gray-400">
+                Title
+              </label>
+              <input
+                id="hero-title"
+                type="text"
+                value={heroTitle}
+                onChange={(e) => setHeroTitle(e.target.value)}
+                className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter title"
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="hero-subtitle" className="block text-sm font-medium text-gray-400">
+                Subtitle
+              </label>
+              <input
+                id="hero-subtitle"
+                type="text"
+                value={heroSubtitle}
+                onChange={(e) => setHeroSubtitle(e.target.value)}
+                className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter subtitle"
+              />
+            </div>
+            
+            <div className="pt-2">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? "Updating..." : "Update Hero Content"}
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        {/* Video Section */}
         <div className="bg-gray-800 rounded-xl p-6 shadow-xl">
           <h2 className="text-xl font-semibold text-white mb-4">Update Featured Video</h2>
           
