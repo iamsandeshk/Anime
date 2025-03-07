@@ -19,20 +19,20 @@ const Index = () => {
         />
       </section>
       
-      <section id="embedded-video" className="min-h-screen">
+      <section id="embedded-video" className="min-h-screen -mt-16"> {/* Reduced spacing with negative margin */}
         <EmbeddedVideo 
           title="Latest Episode Preview" 
           videoId="d9MyW72ELq0"
         />
       </section>
       
-      <section id="countdown" className="min-h-screen">
+      <section id="countdown" className="min-h-screen -mt-16"> {/* Reduced spacing with negative margin */}
         <CountdownTimer 
           title="Next Episode Premieres In" 
         />
       </section>
       
-      <section id="poll" className="min-h-screen mb-16">
+      <section id="poll" className="min-h-screen mb-8 -mt-16"> {/* Reduced spacing with negative margin */}
         <Poll 
           question="Will this episode break the internet again?" 
           options={[
@@ -42,7 +42,7 @@ const Index = () => {
         />
       </section>
       
-      <footer className="py-8 text-center text-gray-400 text-sm">
+      <footer className="py-4 text-center text-gray-400 text-sm"> {/* Reduced padding */}
         <div className="container mx-auto">
           <p>&copy; {new Date().getFullYear()} Solo Leveling Experience</p>
         </div>

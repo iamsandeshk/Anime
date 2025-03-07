@@ -12,7 +12,7 @@ export const useScrollAnimations = () => {
       scrollTrigger: {
         trigger: '#hero',
         start: 'top top',
-        end: '+=150%',
+        end: '+=100%', // Reduced from 150% to 100% to decrease spacing
         pin: true,
         scrub: 1
       }
@@ -35,12 +35,12 @@ export const useScrollAnimations = () => {
       { y: 0, opacity: 1, duration: 0.5 }
     );
 
-    // Embedded video section - pin and slow scroll effect
+    // Embedded video section - pin and slow scroll effect with reduced space
     gsap.timeline({
       scrollTrigger: {
         trigger: '#embedded-video',
-        start: 'top bottom',
-        end: 'bottom top',
+        start: 'top bottom-=100', // Start animation earlier
+        end: 'center center', // End when center reaches center
         scrub: 1.5,
         pin: true,
         pinSpacing: true
@@ -50,12 +50,12 @@ export const useScrollAnimations = () => {
       { y: 0, opacity: 1, duration: 1 }
     );
 
-    // Countdown section - pin and slow scroll effect
+    // Countdown section - pin and slow scroll effect with reduced space
     gsap.timeline({
       scrollTrigger: {
         trigger: '#countdown',
-        start: 'top bottom',
-        end: 'bottom top',
+        start: 'top bottom-=100', // Start animation earlier
+        end: 'center center', // End when center reaches center
         scrub: 1.5,
         pin: true,
         pinSpacing: true
@@ -65,12 +65,12 @@ export const useScrollAnimations = () => {
       { y: 0, opacity: 1, duration: 1 }
     );
 
-    // Poll section - pin and slow scroll effect
+    // Poll section - pin and slow scroll effect with reduced space
     gsap.timeline({
       scrollTrigger: {
         trigger: '#poll',
-        start: 'top bottom',
-        end: 'bottom top',
+        start: 'top bottom-=100', // Start animation earlier
+        end: 'center center', // End when center reaches center
         scrub: 1.5,
         pin: true,
         pinSpacing: true
